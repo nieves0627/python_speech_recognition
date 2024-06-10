@@ -1,12 +1,39 @@
 from pydub import AudioSegment
+import sys
+import os
+import os.path
 
 
-audio = AudioSegment.from_wav("output.wav")
+input_path = sys.argv[1]
+save_path = "C:\\Users\\andre\\OneDrive\\Escritorio\\Juliana\\Programacion\\python_speech_recognition\\app\\output\\"
 
-audio = audio + 6  # this will increase the volume by 6dB
-audio = audio * 2  # repeat the clips
-audio = audio.fade_in(2000)  # The fade_in method is used to gradually increase the volume of the audio over a specified duration (2000 milliseconds).
 
-audio.export("mashup.mp3", format="mp3")
+def getting_filename(input_path):
+    filename = os.path.basename(input_path).split('/')[-1]
+    return filename
 
-audio2 = AudioSegment.from_mp3("mashup.mp3")
+
+# Ingrese como parametro la ruta del archivo de salida y que el nombre del archivo de salida sea el mismo del de entrada exceptuando la extension
+# Los datos de subir volumen y repetir el clip tambien deben ser parametros que se pasen a la funcion con un default en el cual no se hagan cambios
+# Documente la funcion utilizando los docstrings de google guidelines
+
+
+def to_mp3(filename, input_path=input_path, save_path=save_path):
+    audio = AudioSegment.from_wav(input_path)
+
+    audio_name = filename + ".mp3"
+    audio.export(audio_name, format="mp3")
+
+    completePath = os.path.join(save_path, audio_name)
+
+    file1 = open(completePath, "w")
+
+    file1.write(audio_name)
+
+    file1.close()
+
+    print("Audio saved!")
+
+
+filename = getting_filename(input_path)
+to_mp3(filename, input_path=input_path, save_path=save_path)
