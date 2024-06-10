@@ -5,12 +5,12 @@ FRAMES_PER_BUFFER = 3200
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100  # We can use 16000 for a change
-
+p = pyaudio.PyAudio()
 
 # typehints en todas las funciones
 # Poner los segundos como parametro de la primera funcion 
-def record_audio() -> pyaudio.PyAudio:
-    p = pyaudio.PyAudio()
+def record_audio(p) -> pyaudio.PyAudio:
+    
     #Usar contextmanager
     stream = p.open(
         format=FORMAT,
