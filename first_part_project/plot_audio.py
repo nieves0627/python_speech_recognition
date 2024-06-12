@@ -1,14 +1,11 @@
 import wave
 import matplotlib.pyplot as plt
 import numpy as np
-import sys
-
-filename = sys.argv[1]
 
 
-def get_audio_params(filename):
+def get_audio_params(input_path):
     # Cambie wave. open a utilizar context managers
-    obj = wave.open(filename, "rb")
+    obj = wave.open(input_path, "rb")
 
     sample_freq = obj.getframerate()
     n_samples = obj.getnframes()
@@ -34,11 +31,10 @@ def audio_plot(n_samples, signal_wave, time_audio):
     plt.ylabel("Signal wave")
     plt.xlabel("Time (s)")
     plt.xlim(0, time_audio)
-    graphic = plt.show()
+    plt.show()
 
-    #retorne None
-    return graphic
+    
+
+    
 
 
-n_samples, signal_wave, time_audio = get_audio_params(filename)
-audio_plot(n_samples, signal_wave, time_audio)
