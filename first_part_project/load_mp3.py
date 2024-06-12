@@ -12,7 +12,7 @@ def getting_filename(input_path):
     return filename_without_extension
 
 
-# Documente la funcion utilizando los docstrings de google guidelines
+# Documente la funcion utilizando los docstrings de google guidelines, typehints
 
 
 def to_mp3(filename_without_extension, input_path, save_path, ffmpeg_path=None):
