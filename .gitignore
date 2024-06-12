@@ -1,3 +1,4 @@
 api_secrets.py
 app/output/*
 !app/output/.gitkeep
+*.pyc
