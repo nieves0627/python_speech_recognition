@@ -1,6 +1,8 @@
 import unittest
 from second_part_project.api_secrets import API_KEY_ASSEMBLYAI
-from second_part_project.api_communication import upload, transcribe, poll, get_transcription_result_url, save_transcript
+# from second_part_project.api_communication import upload,
+# transcribe, poll, get_transcription_result_url, save_transcript
+
 
 class TestAPIcommunication(unittest.TestCase):
 

@@ -3,6 +3,7 @@ import pyaudio
 from unittest.mock import patch, MagicMock
 from first_part_project.record_mic import record_audio, save_audio
 
+
 class TestAudioFunctions(unittest.TestCase):
     def setUp(self):
         self.pyaudio_mock = MagicMock(spec=pyaudio.PyAudio)
@@ -17,7 +18,12 @@ class TestAudioFunctions(unittest.TestCase):
         seconds = 2
 
         with patch('pyaudio.PyAudio', return_value=self.pyaudio_mock):
-            frames = record_audio(self.pyaudio_mock, rate, channels, format, frames_per_buffer, seconds)
+            frames = record_audio(self.pyaudio_mock,
+                                  rate,
+                                  channels,
+                                  format,
+                                  frames_per_buffer,
+                                  seconds)
 
         self.pyaudio_mock.open.assert_called_once_with(
             format=format,
@@ -48,6 +54,7 @@ class TestAudioFunctions(unittest.TestCase):
         obj_mock.writeframes.assert_called_once_with(b'frame1frame2frame3')
         obj_mock.close.assert_called_once()
         self.assertEqual(obj, obj_mock)
+
 
 if __name__ == '__main__':
     unittest.main()

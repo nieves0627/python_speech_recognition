@@ -1,6 +1,7 @@
 # Classes for read/write an image on host computer
 # Classes for read/write an text file on host computer
-# this code will come from making the wave example.py file into a class and the plot audio.py file
+# this code will come from making the wave example.py file
+# into a class and the plot audio.py file
 class AudioData:
     def save_metadata(self):
         # wave example.py
@@ -25,4 +26,3 @@ class AudioStream:
 
     def save_to_file(self):
         pass
-

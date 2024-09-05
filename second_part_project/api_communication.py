@@ -1,6 +1,7 @@
 import requests
-from api_secrets import API_KEY_ASSEMBLYAI
+# from api_secrets import API_KEY_ASSEMBLYAI
 import time
+
 
 # Upload
 def upload(input_path, upload_endpoint, headers):
@@ -12,7 +13,9 @@ def upload(input_path, upload_endpoint, headers):
                     break
                 yield data
 
-    upload_response = requests.post(upload_endpoint, headers=headers, data=read_file(input_path))
+    upload_response = requests.post(upload_endpoint,
+                                    headers=headers,
+                                    data=read_file(input_path))
 
     audio_url = upload_response.json()["upload_url"]
     return audio_url
@@ -21,7 +24,9 @@ def upload(input_path, upload_endpoint, headers):
 # Transcribe
 def transcribe(audio_url, transcript_endpoint, headers):
     transcript_request = {"audio_url": audio_url}
-    transcript_response = requests.post(transcript_endpoint, json=transcript_request, headers=headers)
+    transcript_response = requests.post(transcript_endpoint,
+                                        json=transcript_request,
+                                        headers=headers)
 
     transcript_id = transcript_response.json()["id"]
     return transcript_id

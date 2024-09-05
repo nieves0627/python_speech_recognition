@@ -1,18 +1,19 @@
 import wave
 
-# los parametros adicionales de esta funcion se deben obtener en la funcion definida en el archivo plot_audio e importarce aqui de ser necesario
+
+# los parametros adicionales de esta funcion se deben obtener en la
+# funcion definida en el archivo plot_audio e importarce aqui de ser necesario
 def get_audio_params(input_path):
 
     obj = wave.open(input_path, "rb")
 
     nchannels = obj.getnchannels()
-    samplewidth =  obj.getsampwidth()
-    framerate =  obj.getframerate()
+    samplewidth = obj.getsampwidth()
+    framerate = obj.getframerate()
     nframes = obj.getnframes()
 
     time_audio = nframes / framerate
     print(f"Frame rate: {framerate}, Number of channels: {nchannels}, Sample width: {samplewidth}, Time audio: {time_audio}")
-
     return obj
 
 
@@ -34,4 +35,3 @@ def set_audio_params(obj):
     obj_new.close()
 
     return obj_new
-
