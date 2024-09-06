@@ -1,20 +1,22 @@
 [tool.poetry]
-name = "python-speech-recognition"
+name = "python speech recognition"
 version = "0.1.0"
-description = ""
+description = "A python virtual microphone capable of transcribing audios. The transcription is filtered through an artificial intelligence to finally generate a summary with the important points of the conversation generated around the audio."
 authors = ["Juliana Gutierrez <alejuli.0627@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pydub = "^0.25.1"
-numpy = "^1.26.4"
-matplotlib = "^3.9.0"
-pyaudio = "^0.2.14"
 wave = "^0.0.2"
+pydub = "^0.25.1"
+matplotlib = "^3.9.2"
+numpy = "^2.1.1"
+pyaudio = "^0.2.14"
 requests = "^2.32.3"
+assemblyai = "^0.33.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+package-mode = false
